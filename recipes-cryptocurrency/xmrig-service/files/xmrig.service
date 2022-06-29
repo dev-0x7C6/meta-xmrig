@@ -1,0 +1,21 @@
+[Unit]
+Description=XMRig Monero Miner
+AssertFileNotEmpty=/etc/xmrig/config.json.in
+Conflicts=getty@tty1.service
+
+[Service]
+ExecStartPre=+/bin/cp /etc/xmrig/config.json.in /etc/xmrig/config.json
+ExecStartPre=+/bin/sed -i "s/@@DOT_RIG_ID@@/.%H-%m/g" /etc/xmrig/config.json
+ExecStartPre=+/lib/systemd/systemd-networkd-wait-online --any
+ExecStartPre=-/usr/bin/randomx_boost.sh
+ExecStartPre=-/usr/bin/enable_1gb_pages.sh
+ExecStartPre=/usr/bin/xmrig --config=/etc/xmrig/config.json --dry-run
+ExecStart=/usr/bin/xmrig --config=/etc/xmrig/config.json
+StandardInput=tty
+StandardOutput=tty
+StandardError=tty
+TTYPath=/dev/tty1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
