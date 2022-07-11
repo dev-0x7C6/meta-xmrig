@@ -7,15 +7,11 @@ SECTION = "base"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=79179bb373cd55cbd834463a514fb714"
 
-SRC_URI = "https://www.open-mpi.org/software/${BPN}/v2.7/downloads/${BP}.tar.bz2"
-SRC_URI[md5sum] = "903b23b6b064f497f49fcf478b3160fb"
-SRC_URI[sha256sum] = "0d4e1d36c3a72c5d61901bfd477337f5a4c7e0a975da57165237d00e35ef528d"
-
-UPSTREAM_CHECK_URI = "https://www.open-mpi.org/software/hwloc/v1.11/"
+SRC_URI = "https://download.open-mpi.org/release/hwloc/v2.8/${BP}.tar.bz2"
+SRC_URI[md5sum] = "1d40ecdded67bbe4bafc8f8e8479376c"
+SRC_URI[sha256sum] = "348a72fcd48c32a823ee1da149ae992203e7ad033549e64aed6ea6eeb01f42c1"
 
 inherit autotools pkgconfig
-
-
 
 EXTRA_OECONF += " \
   --disable-opencl \
