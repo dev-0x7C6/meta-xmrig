@@ -7,9 +7,9 @@ SECTION = "base"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=79179bb373cd55cbd834463a514fb714"
 
-SRC_URI = "https://download.open-mpi.org/release/hwloc/v2.8/${BP}.tar.bz2"
-SRC_URI[md5sum] = "1d40ecdded67bbe4bafc8f8e8479376c"
-SRC_URI[sha256sum] = "348a72fcd48c32a823ee1da149ae992203e7ad033549e64aed6ea6eeb01f42c1"
+SRC_URI = "https://download.open-mpi.org/release/hwloc/v2.9/${BP}.tar.bz2"
+SRC_URI[md5sum] = "49869a8e19754299db512572abc5eb2b"
+SRC_URI[sha256sum] = "2070e963596a2421b9af8eca43bdec113ee1107aaf7ccb475d4d3767a8856887"
 
 inherit autotools pkgconfig
 
