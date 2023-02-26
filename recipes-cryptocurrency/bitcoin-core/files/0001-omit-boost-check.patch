@@ -1,0 +1,29 @@
+From df852f896a1941517d06d8547b46e3304bfa52ac Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bart=C5=82omiej=20Burdukiewicz?=
+ <bartlomiej.burdukiewicz@gmail.com>
+Date: Sun, 26 Feb 2023 20:04:25 +0100
+Subject: [PATCH] omit boost check.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Bartłomiej Burdukiewicz <bartlomiej.burdukiewicz@gmail.com>
+---
+ configure.ac | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 9b2a3d115..b4578d433 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1470,7 +1470,6 @@ fi
+ if test "$use_boost" = "yes"; then
+ 
+   dnl Check for Boost headers
+-  AX_BOOST_BASE([1.64.0],[],[AC_MSG_ERROR([Boost is not available!])])
+   if test "$want_boost" = "no"; then
+     AC_MSG_ERROR([only libbitcoinconsensus can be built without Boost])
+   fi
+-- 
+2.39.2
+
