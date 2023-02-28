@@ -18,13 +18,14 @@ PR = "r1"
 
 inherit pkgconfig autotools gettext
 
-DEPENDS = "libsecp256k1 zeromq boost libevent util-linux-native"
+DEPENDS = "libsecp256k1 boost libevent util-linux-native"
 
 EXTRA_OECONF = " \
     --with-sysroot=${STAGING_DIR_HOST} \
     --disable-bench \
     --disable-ccache \
-    --enable-c++20 \
+    --disable-tests \
+    --disable-gui-tests \
 "
 
 export MOC = "${STAGING_BINDIR_NATIVE}/moc"
@@ -35,7 +36,12 @@ export LCONVERT = "${STAGING_BINDIR_NATIVE}/lconvert"
 export LRELEASE = "${STAGING_BINDIR_NATIVE}/lrelease"
 export LUPDATE = "${STAGING_BINDIR_NATIVE}/lupdate"
 
+PACKAGECONFIG[c++20] = "--enable-c++20,--disable-c++20"
+PACKAGECONFIG[qrcodes] = "--with-qrencode,--without-qrencode,qrencode"
 PACKAGECONFIG[gui] = "--with-gui=qt5,--with-gui=no,qtbase qtbase-native qttools-native"
-PACKAGECONFIG[c++20] = "--enable-c++20,"
+PACKAGECONFIG[zeromq] = "--enable-zmq,--disable-zmq"
+PACKAGECONFIG[sqlite] = "--with-sqlite,--without-sqlite,sqlite3"
+PACKAGECONFIG[bdb] = "--with-bdb --with-incompatible-bdb,--without-bdb,db"
+PACKAGECONFIG[upnp] = "--with-miniupnpc,--without-miniupnpc,miniupnpd"
 
-PACKAGECONFIG ?= "gui c++20"
+PACKAGECONFIG ?= "c++20 qrcodes gui zeromq sqlite bdb"
