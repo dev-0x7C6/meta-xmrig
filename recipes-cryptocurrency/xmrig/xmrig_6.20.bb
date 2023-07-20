@@ -2,10 +2,10 @@ SUMMARY = "RandomX, CryptoNight and Argon2 CPU miner"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-DEPENDS = "libuv openssl hwloc virtual/crypt"
+DEPENDS = "libuv openssl hwloc"
 
 SRC_URI = "git://github.com/xmrig/xmrig.git;protocol=https;branch=master"
-SRCREV = "28e81bd7c09c88f8dfe5ab5fb1fbd62f3bca1f8b"
+SRCREV = "2e77faa80ca6b61763987b5ce410998be5bb7a22"
 
 S = "${WORKDIR}/git"
 PR = "r0"
